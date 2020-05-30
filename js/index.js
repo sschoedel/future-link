@@ -107,11 +107,12 @@ var map = new Map({
 
 
  /*
-  *  DRAW OUTLINES FOR EACH STATE AND COLOR ORANGE 
+  *   DRAW OUTLINES FOR EACH STATE AND COLOR ORANGE 
   *
-  *  TODO: change color when clicked
+  *   TODO: change color when clicked
   * 
-  *  To modify: open stateBorderPattern.py 
+  *   To modify: open stateBorderTemplate.py, make necessary changes, run, 
+  *   and copy paste terminal output
   */
   var Alaska = {
     type: "polygon",
