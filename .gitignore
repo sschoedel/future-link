@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 *.he5
 *_env
 .vscode
+*.whl
 
-=======
-.vscode
->>>>>>> f957bb667315abd14af304f97240169a77f18720
