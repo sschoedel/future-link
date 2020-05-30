@@ -30,60 +30,7 @@ var map = new Map({
   var graphicsLayer = new GraphicsLayer();
   map.add(graphicsLayer);  
   
-  // Create a polygon geometry
-  var polygon = {
-   type: "polygon",
-   rings: [
-    [ -88.675628, 48.120444 ],
-    [ -90.214866, 46.499947 ],
-    [ -86.254996, 44.691935 ],
-    [ -83.829224, 43.662632 ]
-  ]
-  };
-
-  var simpleFillSymbol = {
-   type: "simple-fill",
-   color: [227, 139, 79, 0.8],  // orange, opacity 80%
-   outline: {
-     color: [255, 255, 255],
-     width: 1
-   }
-  };
-
-  var polygonGraphic = new Graphic({
-   geometry: polygon,
-   symbol: simpleFillSymbol
-  });
-
-  graphicsLayer.add(polygonGraphic);
-
-  var attributes = {
-    Name: "test",
-    Location: "idk"
-  }
-
-  var popup = {
-    "title": "test",
-    "content": "<p>asdfasdfasdfasdf</p>"
-  }
-
-  var popups = new Graphic({
-    geometry: polygon,
-    symbol: simpleFillSymbol,
-    attributes: attributes,
-    popupTemplate: popup
-  });
-
-  graphicsLayer.add(popups);
-
-
-
-
-
-
-
-
-
+  
   /*
   *   JSON parsing (currently unused, but could be useful for reading and displaying policy info)
   */
@@ -136,6 +83,26 @@ var map = new Map({
   })
   
   graphicsLayer.add(polygonGraphicAlaska);
+
+  
+  var attributesAlaska = {
+    Name: "test",
+    Location: "idk"
+  }
+
+  var popup = {
+    "title": "test",
+    "content": "<p>asdfasdfasdfasdf</p>"
+  }
+
+  var popups = new Graphic({
+    geometry: Alaska,
+    symbol: simpleFillSymbolAlaska,
+    attributes: attributesAlaska,
+    popupTemplate: popup
+  });
+
+  graphicsLayer.add(popups);
   
   
   var Alabama = {
