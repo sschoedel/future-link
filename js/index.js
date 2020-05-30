@@ -4,7 +4,7 @@ require([
   ], function(Map, MapView) {
 
   var map = new Map({
-    basemap: "light-gray-vector"
+    basemap: "dark-gray-vector"
   });
 
   var view = new MapView({
