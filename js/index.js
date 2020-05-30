@@ -12,7 +12,7 @@ require([
     container: "viewDiv",
     map: map,
     center: [-98.5795, 39.8283], // longitude, latitude
-    zoom: 5,
+    zoom: 4,
     
   });
 
