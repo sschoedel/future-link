@@ -6,13 +6,14 @@ html, body, #viewDiv {
     font-family: Arial, Helvetica, sans-serif;
   }
   #titleDiv {
-    background-color: rgba(255, 250, 240, 0.4);
+    background-color: rgba(255, 250, 240, 0);
     padding: 0;
     margin: 25;
     height: 5%;
     width: 20%;
     text-align: center;
-    font-size: 16pt;
+    font-size: 24pt;
+    color: white;
     position: absolute;
     top: 2%;
     left:40%;
