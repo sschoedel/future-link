@@ -19,8 +19,8 @@ require([
 
   view.ui.add([
     {
-      component: "infoDiv",
-      position: "top-right"
+      component: "titleDiv",
+      position: "manual"
     }
   ]);
 });
