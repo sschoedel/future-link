@@ -4,8 +4,9 @@ require([
   "esri/views/MapView",
   "esri/views/ui/UI",
   "esri/Graphic",
-  "esri/layers/GraphicsLayer"
-], function(Map, MapView, UI, Graphic, GraphicsLayer) {
+  "esri/layers/GraphicsLayer",
+  "esri/layers/FeatureLayer"
+], function(Map, MapView, UI, Graphic, GraphicsLayer, FeatureLayer) {
 
 var map = new Map({
   basemap: "dark-gray-vector"
@@ -55,5 +56,24 @@ var map = new Map({
   });
 
   graphicsLayer.add(polygonGraphic);
+
+  var attributes = {
+    Name: "test",
+    Location: "idk"
+  }
+
+  var popup = {
+    "title": "test",
+    "content": "<p>asdfasdfasdfasdf</p>"
+  }
+
+  var popups = new Graphic({
+    geometry: polygon,
+    symbol: simpleFillSymbol,
+    attributes: attributes,
+    popupTemplate: popup
+  });
+
+  graphicsLayer.add(popups);
 
 });
