@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.15/"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sample Map of Virginia</title>
+    <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 40%;
+        width: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
+
+<script>
+  require([
+      "esri/Map",
+      "esri/views/MapView"
+    ], function(Map, MapView) {
+
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map,
+      center: [-77.479590, 38.282826], // longitude, latitude
+      zoom: 8
+    });
+  });
+  </script>
