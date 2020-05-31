@@ -54,7 +54,7 @@ class Tester():
 
                 #Move the prediction back onto the cpu & find the index of the greatest probability.
                 outputs = outputs.cpu()
-                outputs = np.argmax(outputs, 1)
+                #outputs = np.argmax(outputs, 1)
 
                 #Append the prediction and ground truths to a running list
                 pred = np.hstack((pred, outputs.numpy()))

@@ -6,7 +6,7 @@ from torch.utils.data import Dataset, SubsetRandomSampler, DataLoader
 
 import pandas as pd
 import numpy as np
-from sklearn.decomposition import TruncatedSVD
+from sklearn.preprocessing import MinMaxScaler, RobustScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix as conf, f1_score
 
@@ -24,7 +24,7 @@ import math
 import joblib as jb
 
 class Runner():
-    def __init__(self, trainingX, trainingY, gpuOn=False, epochs=200, lr=0.001, weight_decay=0.01):
+    def __init__(self, trainingX, trainingY, gpuOn=False, epochs=200, lr=0.0001, weight_decay=0.01, runName = ''):
 
         #instantiate the LSTM and hyperparams
         self.net = FutureNet(1)
@@ -32,6 +32,7 @@ class Runner():
         self.lr = lr
         self.weight_decay = weight_decay
         self.epochs = epochs
+        self.runName = runName
 
         #Move the network to the GPU if enabled
         if self.gpuOn:
@@ -70,8 +71,9 @@ class Runner():
             
                 #Zero the gradient of the NN before the training loop begins
                 optimizer.zero_grad()
-
+                self.net.init_hidden()
                 #need to feed in data one row at a time
+                outputs = torch.tensor([], requires_grad = True)
                 for c, day in enumerate(inputs[0]):
                     #Move the loaded data to the GPU if enabled
                        
@@ -84,24 +86,27 @@ class Runner():
                 
                     #Predict from the current model, calculate the loss, and perform backprop
                     output = self.net(day)
-                    loss = criterion(output,labels)
-                    loss.backward()
-                    optimizer.step()
+                    outputs = torch.cat((outputs, output),0)
+
+                #print(outputs.shape)
+                loss = criterion(outputs,labels)
+                loss.backward()
+                optimizer.step()
 
                     #Keep a running loss total throughout the epoch for reporting reasons
-                    running_loss += loss.item()
+                running_loss += loss.item()
 
             #Update the learning rate scheduler
             scheduler.step(running_loss)
 
             #Early stop mechanic: If the loss is greater than the previous loss or fluctuates within the threshold in reference to the previous stop, increase the flat count
-            stop_thres = .0005
-            if np.round(np.abs(running_loss/((c+1)*(i+1)) - prev_loss/((c+1)*(i+1))), decimals = 3) <= stop_thres or np.round(running_loss/((c+1)*(i+1)), decimals = 3) >= np.round(prev_loss/((c+1)*(i+1)), decimals = 3):
+            stop_thres = 3
+            if np.round(np.abs(running_loss/((i+1)) - prev_loss/((i+1))), decimals = 3) <= stop_thres or np.round(running_loss/((i+1)), decimals = 3) >= np.round(prev_loss/((i+1)), decimals = 3):
                 flat_count = flat_count + 1
             else:
                 flat_count = 0
 
-            print('[{}] Loss: {:.4f} | Flatline Count: {}'.format(epoch, running_loss/((c+1)*(i+1)), flat_count))
+            print('[{}] Loss: {:.4f} | Flatline Count: {}'.format(epoch, running_loss/((i+1)), flat_count))
 
             #If flat count is greater than stop_count and the learning rate scheduler has reached its minimum lr, cut off the training of the network and record the final epoch
             finalEpoch = epoch
@@ -119,7 +124,7 @@ class Runner():
         print('Finished Training')
 
         #Save the trained network
-        torch.save(self.net, "Future_Model.pth")
+        torch.save(self.net, self.runName + "_Future_Model.pth")
 
 if __name__ == '__main__':
 
@@ -129,11 +134,16 @@ if __name__ == '__main__':
     parser.add_argument('-rn', '--runName')
     args = parser.parse_args()
 
-    trainingData = jb.load('lstm_Data.joblib')
+    allData = jb.load('lstm_Data.joblib')
+
+    
+
+    scaler = RobustScaler()
+    y = scaler.fit_transform(allData[1])
 
     #Initialize Runner obj and run training cycle
     #needs: trainingData - dataframe of all training data
-    futureNet = Runner(trainingData[0], trainingData[1])
+    futureNet = Runner(allData[0], y, runName = args.runName)
     futureNet.train()
 
 #Save log, diabled temporarily until review is finished
