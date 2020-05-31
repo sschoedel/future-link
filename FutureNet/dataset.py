@@ -1,13 +1,13 @@
 from torch.utils.data import Dataset
 import numpy as np
-import pandas
+import pandas as pd
 import datereaderYE
 
 class FutureDataSet(Dataset):
 
-    def __init__(self, dataframe):
+    def __init__(self, dataframe, y):
         self.dataframe = dataframe
-        self.transform = transform
+        self.y = y
 
     #Return how many samples are in the dataset
     def __len__(self):
@@ -17,18 +17,27 @@ class FutureDataSet(Dataset):
     def __getitem__(self, idx):
         
         stateLine = self.dataframe.iloc[idx, 0:]
-        state = np.array([stateLine[0:(len(stateLine)-1)]])
-        label = stateLine[(len(stateLine)-1)]
+        state = np.array([stateLine[0:]])[0]
+        #print(state.shape)
+        state = np.array([stateLine[1:]])[0]
+        #print(state.shape)
+        gasVals = self.y
+        #print(gasVals.shape)
+        state = np.hstack((state, gasVals[:len(gasVals)-1]))
         
         state = state.astype('float')
+        label = gasVals[1:]
         return state, label
 
 if __name__ == '__main__':
     datas = []
-    for state in ['virginia, wyoming, kansas, colorado']:
+    for state in ['virginia', 'wyoming', 'kansas', 'colorado']:
+        #print(state)
         labels, output = datereaderYE.get_X("2020-03-22", "2020-05-28", state)
         datas.append(output)
     testData = pd.DataFrame.from_records(datas)
 
-    data = FutureDataSet(testData)
+
+    y = np.random.rand(66 + 1).reshape(((66 + 1),1))
+    data = FutureDataSet(testData, y)
     print(data.__getitem__(2))
