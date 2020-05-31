@@ -22,7 +22,7 @@ class FutureDataSet(Dataset):
         #print(state.shape)
         state = np.array(stateLine[1:])
         #print(state.shape)
-        gasVals = np.array(self.y[idx]) / float(1E+20)
+        gasVals = np.array(self.y[idx])
         #print(gasVals.shape)
         #print(state)
         #print(gasVals.shape)
