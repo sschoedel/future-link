@@ -20,7 +20,7 @@ try:
 except ImportError: 
     from yaml import Loader, Dumper
 
-from truss_net import TrussNet
+from future_net import FutureNet
 from dataset import TrussDataSet
 from utils import saveLog
 
@@ -35,7 +35,7 @@ class Runner():
         #instantiate the architecture, experiment config, and neural network class variables
         self.arch = architecture
         self.experiment = experiment
-        self.net = TrussNet(experiment['architecture_path'])
+        self.net = FutureNet(experiment['architecture_path'])
 
         #Move the network to the GPU if enabled
         if experiment['gpuOn']:
@@ -54,7 +54,8 @@ class Runner():
         print("-------------------------------------")
 
         #Instantiate the loss function, optimizer, learning rate scheduler, and start recording training time
-        criterion = nn.CrossEntropyLoss()
+        #criterion = nn.SmoothL1Loss()
+        criterion = nn.CrossEntropyLoss
         optimizer = optim.AdamW(self.net.parameters(), lr = self.arch['lr'], weight_decay= self.arch['weight_decay'])
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor = .25, patience = 5, threshold = .002, verbose = True, min_lr = [.000001])
         start = time.time()
@@ -137,8 +138,8 @@ if __name__ == '__main__':
     #load config, architecture, testing Data, and NN files
     experiment = load(open(config_path), Loader=Loader)
     arch = load(open(experiment['architecture_path']), Loader=Loader)
-    trainingData = jb.load(args.trainData)
-
+    #trainingData = jb.load(args.trainData)
+    torch = 
     #Initialize Runner obj and run training cycle
     trussNet = Runner(experiment, arch, trainingData)
     trussNet.train()

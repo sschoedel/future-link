@@ -14,7 +14,7 @@ try:
 except ImportError: 
     from yaml import Loader, Dumper
 
-from truss_net import TrussNet
+from future_net import FutureNet
 from dataset import TrussDataSet
 
 import argparse

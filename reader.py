@@ -12,7 +12,8 @@ def readIHMEFile(filename):
             locTemp = col.lower().split(",")
             loc = []
             for item in locTemp:
-                loc.append(item.strip('\"').strip('\n'))
+                cleanItem = item.strip('\"').strip('\n')
+                loc.append(cleanItem.strip('\"'))
 
             if i == 0:
                 labels = loc
