@@ -5,5 +5,5 @@ epochs: 200
 datapath: ['Datasets/Truss_v6_2000_026.txt', 'Datasets/Truss_v6_2000_006.txt', 'Datasets/Truss_v6_2000_086.txt', 'Datasets/Truss_v6_2000_076.txt', 'Datasets/Truss_v6_2000_046.txt']
 gpuOn: True
 architecture_path: 'resnet_config.yml'
-batch_size: 114
+batch_size: 1
 ...

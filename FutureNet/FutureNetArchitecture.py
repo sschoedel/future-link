@@ -5,7 +5,7 @@ import torch.optim as optim
 
 class FutureNet(nn.Module):
     
-    def __init__(self, input_dim=7, hidden_dim=50, batch_size, output_dim=1, num_layers=2):
+    def __init__(self, input_dim=7, hidden_dim=50, batch_size=1, output_dim=1, num_layers=2):
         super(FutureNet, self).__init__()
 
         self.input_dim = input_dim 
