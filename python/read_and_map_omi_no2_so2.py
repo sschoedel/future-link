@@ -4,7 +4,7 @@ Module: read_and_map_omi_no2_so2.py
 ==========================================================================================
 Disclaimer: The code is for demonstration purposes only. Users are responsible to check for accuracy and revise to fit their objective.
 
-Author: Justin Roberts-Pierel, 2015 
+Author: Justin Roberts-Pierel, 2015
 Organization: NASA ARSET
 Purpose: To extract No2 or SO2 data from an OMI HDF5 file and create a map of the resulting data
 
@@ -40,55 +40,40 @@ for FILE_NAME in fileList:
 			#this is how you access the data tree in an hdf5 file
 			dataFields=file['HDFEOS']['SWATHS']['ColumnAmountNO2']['Data Fields']
 			geolocation=file['HDFEOS']['SWATHS']['ColumnAmountNO2']['Geolocation Fields']
-			SDS_NAME='ColumnAmountNO2'
-			data=dataFields[SDS_NAME]
+			data=dataFields['ColumnAmountNO2']
 			map_label=data.attrs['Units'].decode()
-		elif 'SO2' in FILE_NAME:
-			print('This is an OMI SO2 file. Here is some information: ')
-			dataFields=file['HDFEOS']['SWATHS']['OMI Total Column Amount SO2']['Data Fields']
-			geolocation=file['HDFEOS']['SWATHS']['OMI Total Column Amount SO2']['Geolocation Fields']
-			SDS_NAME='ColumnAmountSO2_PBL'
-			data=dataFields[SDS_NAME]
-			valid_min=data.attrs['ValidRange'][0]
-			valid_max=data.attrs['ValidRange'][1]
-			map_label=data.attrs['Units'].decode()
-			print('Valid Range is: ',valid_min,valid_max)
-		else:
-			print('The file named :',FILE_NAME, ' is not a valid OMI file. \n')
-			#if the program is unable to determine that it is an OMI SO2 or NO2 file, then it will skip to the next file
-			continue
-			
-		#get necessary attributes 
+
+		#get necessary attributes
 		fv=data.attrs['_FillValue']
 		mv=data.attrs['MissingValue']
 		offset=data.attrs['Offset']
 		scale=data.attrs['ScaleFactor']
-		
-		#get lat and lon information 
+
+		#get lat and lon information
 		lat=geolocation['Latitude'][:]
 		min_lat=np.min(lat)
 		max_lat=np.max(lat)
 		lon=geolocation['Longitude'][:]
 		min_lon=np.min(lon)
 		max_lon=np.max(lon)
-		
+
 		#get the data as an array and mask fill/missing values
 		dataArray=data[:]
 		dataArray[dataArray==fv]=np.nan
 		dataArray[dataArray==mv]=np.nan
 		dataArray = scale * (dataArray - offset)
-		
+
 		#get statistics about data
 		average=np.nanmean(dataArray)
 		print(average)
 		stdev=np.nanstd(dataArray)
 		median=np.nanmedian(dataArray)
-		
-		#print statistics 
+
+		#print statistics
 		print('The average of this data is: ',round(average,3),'\nThe standard deviation is: ',round(stdev,3),'\nThe median is: ',round(median,3))
 		print('The range of latitude in this file is: ',min_lat,' to ',max_lat, 'degrees \nThe range of longitude in this file is: ',min_lon, ' to ',max_lon,' degrees')
 		is_map=input('\nWould you like to create a map of this data? Please enter Y or N \n')
-		
+
 		#if user would like a map, view it
 		if is_map == 'Y' or is_map == 'y':
 			data = np.ma.masked_array(data, np.isnan(data))
@@ -115,5 +100,5 @@ for FILE_NAME in fileList:
 				#saves as a png if the user would like
 				pngfile = '{0}.png'.format(FILE_NAME[:-3])
 				fig.savefig(pngfile)
-		#close the hdf5 file 
+		#close the hdf5 file
 		file.close()
