@@ -21,7 +21,7 @@ except ImportError:
     from yaml import Loader, Dumper
 
 from FutureNetArchitecture import FutureNet
-from dataset import TrussDataSet
+from dataset import FutureDataSet
 from utils import saveLog
 
 import argparse
@@ -30,18 +30,19 @@ import math
 import joblib as jb
 
 class Runner():
-    def __init__(self, architecture, trainingData):
+    def __init__(self, trainingData, gpuOn=False, epochs):
 
-        #instantiate the architecture, experiment config, and neural network class variables
-        self.arch = architecture
+        #instantiate the LSTM
+        self.gpuOn = gpuOn
         self.net = FutureNet()
+
         #Move the network to the GPU if enabled
-        if experiment['gpuOn']:
+        if self.gpuOn:
             self.net = self.net.cuda()
 
         #Load Data & put into training DataLoader, which is used in train()
-        train = TrussDataSet(trainingData, xWidth = arch['input_width'], yWidth = arch['input_height'])
-        self.trainLoader = DataLoader(train, batch_size= experiment['batch_size'],
+        train = FutureDataSet(trainingData)
+        self.trainLoader = DataLoader(train, batch_size=1,
                             shuffle=True, num_workers=4)
 
     def train(self):
@@ -76,7 +77,7 @@ class Runner():
                 #need to feed in data one row at a time
                 for day in inputs:
                     #Move the loaded data to the GPU if enabled
-                    if experiment['gpuOn']:
+                    if self.gpuOn:
                         inputs = inputs.float().cuda()
                         labels = labels.float().cuda()
                     else:
@@ -136,14 +137,10 @@ if __name__ == '__main__':
     else:
         config_path = args.config
 
-    #load config, architecture, testing Data, and NN files
-    experiment = load(open(config_path), Loader=Loader)
-    arch = load(open(experiment['architecture_path']), Loader=Loader)
-    #trainingData = jb.load(args.trainData)
-    torch = 
     #Initialize Runner obj and run training cycle
-    trussNet = Runner(experiment, arch, trainingData)
-    trussNet.train()
+    #needs: trainingData - dataframe of all training data
+    futureNet = Runner(trainingData, gpuOn=True, epochs=1000)
+    futureNet.train()
 
 #Save log, diabled temporarily until review is finished
 #saveLog(log_Path, iden, experiment['datapath'], net.arch_Name, finalEpoch, true, pred, net.seed, elapsed, str(args.runName), net)
