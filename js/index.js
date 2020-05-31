@@ -105,7 +105,9 @@ var popupsAlaska1 = new Graphic({
 
 graphicsLayer.add(popupsAlaska1);
 
-var popupTemplateAlaska2 = new PopupTemplate({
+
+
+var template = new PopupTemplate({
   title: "Boston Marathon 2013",
   description: "{STATE_NAME}:  {Percent_Fi} of starters finished",
   fieldInfos: [{ //define field infos so we can specify an alias
@@ -128,14 +130,12 @@ var popupTemplateAlaska2 = new PopupTemplate({
   }]
 });
 
-var popupsAlaska2 = new Graphic({
-  geometry: Alaska,
-  symbol: simpleFillSymbolAlaska,
-  attributes: attributesAlaska,
-  popupTemplate: popupTemplateAlaska2
+var featureLayer = new FeatureLayer("https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0",{
+  mode: FeatureLayer.MODE_ONDEMAND,
+  outFields: ["*"],
+  infoTemplate: template
 });
-
-graphicsLayer.add(popupsAlaska2);
+map.addLayer(featureLayer);
 
 
 
