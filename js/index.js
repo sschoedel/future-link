@@ -9,7 +9,7 @@ require([
 ], function(Map, MapView, UI, Graphic, GraphicsLayer, FeatureLayer) {
 
 var map = new Map({
-  basemap: "dark-gray-vector"
+  basemap: "dark-gray"
 });
 
   var view = new MapView({
@@ -57,11 +57,10 @@ var map = new Map({
 
  /*
   *   DRAW OUTLINES FOR EACH STATE AND COLOR ORANGE 
-  *
-  *   TODO: change color when clicked
   * 
   *   To modify: open stateBorderTemplate.py, make necessary changes, run, 
   *   and copy paste terminal output
+  * 
   */
  var Alaska = {
   type: "polygon",
