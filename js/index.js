@@ -107,35 +107,36 @@ graphicsLayer.add(popupsAlaska1);
 
 
 
-var template = new PopupTemplate({
-  title: "Boston Marathon 2013",
-  description: "{STATE_NAME}:  {Percent_Fi} of starters finished",
-  fieldInfos: [{ //define field infos so we can specify an alias
-    fieldName: "Number_Ent",
-    label: "Entrants"
-  },{
-    fieldName: "Number_Sta",
-    label: "Starters"
-  },{
-    fieldName: "Number_Fin",
-    label: "Finishers"
-  }],
-  mediaInfos:[{ //define the bar chart
-    caption: "",
-    type:"barchart",
-    value:{
-      theme: "Dollar",
-      fields:["Number_Ent","Number_Sta","Number_Fin"]
-    }
-  }]
-});
+// Chart popup tests
+// var template = new PopupTemplate({
+//   title: "Boston Marathon 2013",
+//   description: "{STATE_NAME}:  {Percent_Fi} of starters finished",
+//   fieldInfos: [{ //define field infos so we can specify an alias
+//     fieldName: "Number_Ent",
+//     label: "Entrants"
+//   },{
+//     fieldName: "Number_Sta",
+//     label: "Starters"
+//   },{
+//     fieldName: "Number_Fin",
+//     label: "Finishers"
+//   }],
+//   mediaInfos:[{ //define the bar chart
+//     caption: "",
+//     type:"barchart",
+//     value:{
+//       theme: "Dollar",
+//       fields:["Number_Ent","Number_Sta","Number_Fin"]
+//     }
+//   }]
+// });
 
-var featureLayer = new FeatureLayer("https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0",{
-  mode: FeatureLayer.MODE_ONDEMAND,
-  outFields: ["*"],
-  infoTemplate: template
-});
-map.addLayer(featureLayer);
+// var featureLayer = new FeatureLayer("https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0",{
+//   mode: FeatureLayer.MODE_ONDEMAND,
+//   outFields: ["*"],
+//   infoTemplate: template
+// });
+// map.addLayer(featureLayer);
 
 
 
