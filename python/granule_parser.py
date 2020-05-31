@@ -57,6 +57,8 @@ state_boundaries = {
 "Wyoming": Polygon([ (-104.0556, 41.0037), (-104.0584, 44.9949), (-111.0539, 44.9998), (-111.0457, 40.9986), (-104.0556, 41.0006)])
 }
 
+skip_amount = 1 # increase this to skip some points and speed up program
+
 # Write to CSV
 with open('NO2_data.csv', mode='w', newline='') as NO2_data:
 	fieldnames = ['Alaska', 'Alabama', 'Arkansas', 'Arizona', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Iowa', 'Idaho', 'Illinois', 'Indiana', 'Kansas', 'Kentucky', 'Louisiana', 'Massachusetts', 'Maryland', 'Maine', 'Michigan', 'Minnesota', 'Missouri', 'Mississippi', 'Montana', 'NorthCarolina', 'NorthDakota', 'Nebraska', 'NewHampshire', 'NewJersey', 'NewMexico', 'Nevada', 'NewYork', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'RhodeIsland', 'SouthCarolina', 'SouthDakota', 'Tennessee', 'Texas', 'Utah', 'Virginia', 'Vermont', 'Washington', 'Wisconsin', 'WestVirginia', 'Wyoming']
@@ -78,10 +80,14 @@ with open('NO2_data.csv', mode='w', newline='') as NO2_data:
 				lonLen = len(geolocation['Longitude'])
 				latLen = len(geolocation['Latitude'])
 
-				initial_data=dataFields['ColumnAmountNO2'][500:dataLen:6]
+				# start at 700 because the first half of the data does not cover the US
+				initial_data=dataFields['ColumnAmountNO2'][700:dataLen:skip_amount]
 
-				initial_lon=geolocation['Longitude'][500:lonLen:6]
-				initial_lat=geolocation['Latitude'][500:latLen:6]
+				initial_lon=geolocation['Longitude'][700:lonLen:skip_amount]
+				initial_lat=geolocation['Latitude'][700:latLen:skip_amount]
+
+				fv=initial_data.attrs['_FillValue']
+				mv=initial_data.attrs['MissingValue']
 
 				data = []
 				lon = []
