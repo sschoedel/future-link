@@ -51,7 +51,8 @@ var map = new Map({
 
   // Date variable for each state's popup
   var futureDate = new Date();
-  futureDate.setDate(targetDate.getDate() + 10);
+  futureDate.setDate(futureDate.getDate() + 10);
+
 
 
  /*
