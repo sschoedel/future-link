@@ -42,7 +42,7 @@ class Runner():
             self.net = self.net.cuda()
 
         #Load Data & put into training DataLoader, which is used in train()
-        train = TrussDataSet(trainingData, xWidth = arch['input_width'], yWidth = arch['input_height'])
+        train = FutureDataSet(trainingData, y)
         self.trainLoader = DataLoader(train, batch_size= experiment['batch_size'],
                             shuffle=True, num_workers=4)
 
