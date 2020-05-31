@@ -14,12 +14,6 @@ import time
 from datetime import date
 from datetime import datetime
 
-from yaml import load, dump
-try: 
-    from yaml import CLoader as Loader, CDumper as Dumper
-except ImportError: 
-    from yaml import Loader, Dumper
-
 from FutureNetArchitecture import FutureNet
 from dataset import FutureDataSet
 from utils import saveLog
@@ -27,14 +21,15 @@ from utils import saveLog
 import argparse
 import pdb
 import math
-import joblib as jb
 
 class Runner():
-    def __init__(self, trainingData, gpuOn=False, epochs):
+    def __init__(self, trainingData, gpuOn=False, epochs=200, lr=0.001, weight_decay=0.01):
 
-        #instantiate the LSTM
-        self.gpuOn = gpuOn
+        #instantiate the LSTM and hyperparams
         self.net = FutureNet()
+        self.gpuOn = gpuOn
+        self.lr = lr
+        self.weight_decay = weight_decay
 
         #Move the network to the GPU if enabled
         if self.gpuOn:
@@ -54,7 +49,7 @@ class Runner():
 
         #Instantiate the loss function, optimizer, learning rate scheduler, and start recording training time
         criterion = nn.SmoothL1Loss()
-        optimizer = optim.AdamW(self.net.parameters(), lr = self.arch['lr'], weight_decay= self.arch['weight_decay'])
+        optimizer = optim.AdamW(self.net.parameters(), lr=self.lr, weight_decay=self.weight_decay)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor = .25, patience = 5, threshold = .002, verbose = True, min_lr = [.000001])
         start = time.time()
 
@@ -62,7 +57,7 @@ class Runner():
         prev_loss = 0.0
         flat_count = 0
         self.net.train()
-        for epoch in range(self.experiment['epochs']):
+        for epoch in (self.epochs):
             print("Epoch #:" + str(epoch))
             running_loss = 0.0
 
@@ -121,25 +116,19 @@ class Runner():
         print('Finished Training')
 
         #Save the trained network
-        torch.save(self.net, args.runName + "_Model.pth")
+        torch.save(self.net, "Future_Model.pth")
 
 if __name__ == '__main__':
 
     #Command Line Argument Parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config')
     parser.add_argument('-td', '--trainData')
     parser.add_argument('-rn', '--runName')
     args = parser.parse_args()
 
-    if args.config is None:
-        config_path = 'experiment_config.yml'
-    else:
-        config_path = args.config
-
     #Initialize Runner obj and run training cycle
     #needs: trainingData - dataframe of all training data
-    futureNet = Runner(trainingData, gpuOn=True, epochs=1000)
+    futureNet = Runner(trainingData)
     futureNet.train()
 
 #Save log, diabled temporarily until review is finished
