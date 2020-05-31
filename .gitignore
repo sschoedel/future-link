@@ -3,3 +3,4 @@
 .vscode
 *.whl
 basemap
+*.pyc
