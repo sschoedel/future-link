@@ -50,7 +50,8 @@ var map = new Map({
 
 
   // Date variable for each state's popup
-  var d = new Date();
+  var futureDate = new Date();
+  futureDate.setDate(targetDate.getDate() + 10);
 
 
  /*
@@ -60,7 +61,8 @@ var map = new Map({
   * 
   *   To modify: open stateBorderTemplate.py, make necessary changes, run, 
   *   and copy paste terminal output
-  */var Alaska = {
+  */
+ var Alaska = {
   type: "polygon",
   rings: [
 [-141.0205, 70.0187], [-141.7291, 70.1292], [-144.8163, 70.4515], [-148.4583, 70.7471], [-151.1609, 70.7923], [-152.6221, 71.1470], [-153.9954, 71.1185], [-154.8853, 71.4307], [-156.7529, 71.5232], [-157.9449, 71.2796], [-159.6313, 71.2249], [-161.8671, 70.6363], [-163.5809, 70.0843], [-165.2399, 69.3028], [-166.8768, 69.1782], [-168.0414, 68.3344], [-165.9155, 67.6844], [-164.6082, 67.2933], [-164.0149, 66.7789], [-165.7507, 66.5810], [-167.5745, 66.2867], [-168.9862, 66.0269], [-168.9478, 65.4970], [-167.4756, 65.0420], [-167.0142, 64.3922], [-165.7343, 64.0554], [-163.2294, 64.0193], [-162.1143, 63.9615], [-163.6029, 63.6877], [-165.3717, 63.4530], [-166.3715, 62.4133], [-166.9867, 61.6534], [-166.4429, 60.8556], [-167.8381, 60.5357], [-167.7118, 59.5482], [-165.8002, 59.4115], [-164.5972, 59.3696], [-162.8558, 59.1168], [-162.5427, 58.1185], [-160.6421, 58.1359], [-159.5050, 58.0285], [-158.8953, 57.6336], [-159.9060, 56.9090], [-160.6531, 56.3926], [-161.8835, 56.2342], [-162.9822, 55.7240], [-164.3994, 55.2478], [-165.3168, 54.7753], [-167.1075, 54.1463], [-168.5852, 53.5632], [-169.9146, 53.1402], [-169.5959, 52.5964], [-168.2227, 52.9089], [-162.7734, 54.2139], [-159.1452, 54.6786], [-155.4634, 55.6567], [-152.1400, 57.3510], [-150.8203, 59.2209], [-147.4461, 59.7695], [-145.9850, 60.3521], [-144.1544, 59.8917], [-141.6811, 59.8172], [-140.5124, 59.5225], [-138.8548, 59.0292], [-136.8526, 57.9032], [-136.0725, 56.9157], [-134.9794, 56.1555], [-134.0057, 55.3237], [-133.6418, 54.6341], [-130.6261, 54.7135], [-129.9930, 55.2869], [-130.0108, 55.9869], [-130.1083, 56.1057], [-131.5887, 56.6086], [-132.8755, 57.8404], [-133.8423, 58.7276], [-134.9121, 59.3108], [-135.4724, 59.8020], [-136.3445, 59.6039], [-136.8251, 59.1619], [-137.6079, 59.2441], [-139.2119, 60.0902], [-139.0938, 60.3575], [-140.0056, 60.1866], [-140.9999, 60.3059], [-141.0205, 70.0187]
@@ -89,8 +91,8 @@ var attributesAlaska = {
 }
 
 var popupAlaska = {
-  "title": "Alaska, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Alaska, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsAlaska = new Graphic({
@@ -131,8 +133,8 @@ var attributesAlabama = {
 }
 
 var popupAlabama = {
-  "title": "Alabama, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Alabama, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsAlabama = new Graphic({
@@ -173,8 +175,8 @@ var attributesArkansas = {
 }
 
 var popupArkansas = {
-  "title": "Arkansas, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Arkansas, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsArkansas = new Graphic({
@@ -215,8 +217,8 @@ var attributesArizona = {
 }
 
 var popupArizona = {
-  "title": "Arizona, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Arizona, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsArizona = new Graphic({
@@ -257,8 +259,8 @@ var attributesCalifornia = {
 }
 
 var popupCalifornia = {
-  "title": "California, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "California, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsCalifornia = new Graphic({
@@ -299,8 +301,8 @@ var attributesColorado = {
 }
 
 var popupColorado = {
-  "title": "Colorado, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Colorado, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsColorado = new Graphic({
@@ -341,8 +343,8 @@ var attributesConnecticut = {
 }
 
 var popupConnecticut = {
-  "title": "Connecticut, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Connecticut, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsConnecticut = new Graphic({
@@ -383,8 +385,8 @@ var attributesDelaware = {
 }
 
 var popupDelaware = {
-  "title": "Delaware, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Delaware, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsDelaware = new Graphic({
@@ -425,8 +427,8 @@ var attributesFlorida = {
 }
 
 var popupFlorida = {
-  "title": "Florida, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Florida, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsFlorida = new Graphic({
@@ -467,8 +469,8 @@ var attributesGeorgia = {
 }
 
 var popupGeorgia = {
-  "title": "Georgia, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Georgia, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsGeorgia = new Graphic({
@@ -509,8 +511,8 @@ var attributesHawaii = {
 }
 
 var popupHawaii = {
-  "title": "Hawaii, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Hawaii, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsHawaii = new Graphic({
@@ -551,8 +553,8 @@ var attributesIowa = {
 }
 
 var popupIowa = {
-  "title": "Iowa, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Iowa, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsIowa = new Graphic({
@@ -593,8 +595,8 @@ var attributesIdaho = {
 }
 
 var popupIdaho = {
-  "title": "Idaho, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Idaho, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsIdaho = new Graphic({
@@ -635,8 +637,8 @@ var attributesIllinois = {
 }
 
 var popupIllinois = {
-  "title": "Illinois, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Illinois, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsIllinois = new Graphic({
@@ -677,8 +679,8 @@ var attributesIndiana = {
 }
 
 var popupIndiana = {
-  "title": "Indiana, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Indiana, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsIndiana = new Graphic({
@@ -719,8 +721,8 @@ var attributesKansas = {
 }
 
 var popupKansas = {
-  "title": "Kansas, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Kansas, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsKansas = new Graphic({
@@ -761,8 +763,8 @@ var attributesKentucky = {
 }
 
 var popupKentucky = {
-  "title": "Kentucky, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Kentucky, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsKentucky = new Graphic({
@@ -803,8 +805,8 @@ var attributesLouisiana = {
 }
 
 var popupLouisiana = {
-  "title": "Louisiana, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Louisiana, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsLouisiana = new Graphic({
@@ -845,8 +847,8 @@ var attributesMassachusetts = {
 }
 
 var popupMassachusetts = {
-  "title": "Massachusetts, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Massachusetts, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMassachusetts = new Graphic({
@@ -887,8 +889,8 @@ var attributesMaryland = {
 }
 
 var popupMaryland = {
-  "title": "Maryland, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Maryland, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMaryland = new Graphic({
@@ -929,8 +931,8 @@ var attributesMaine = {
 }
 
 var popupMaine = {
-  "title": "Maine, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Maine, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMaine = new Graphic({
@@ -971,8 +973,8 @@ var attributesMichigan = {
 }
 
 var popupMichigan = {
-  "title": "Michigan, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Michigan, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMichigan = new Graphic({
@@ -1013,8 +1015,8 @@ var attributesMinnesota = {
 }
 
 var popupMinnesota = {
-  "title": "Minnesota, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Minnesota, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMinnesota = new Graphic({
@@ -1055,8 +1057,8 @@ var attributesMissouri = {
 }
 
 var popupMissouri = {
-  "title": "Missouri, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Missouri, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMissouri = new Graphic({
@@ -1097,8 +1099,8 @@ var attributesMississippi = {
 }
 
 var popupMississippi = {
-  "title": "Mississippi, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Mississippi, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMississippi = new Graphic({
@@ -1139,8 +1141,8 @@ var attributesMontana = {
 }
 
 var popupMontana = {
-  "title": "Montana, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Montana, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsMontana = new Graphic({
@@ -1181,8 +1183,8 @@ var attributesNorthCarolina = {
 }
 
 var popupNorthCarolina = {
-  "title": "NorthCarolina, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NorthCarolina, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNorthCarolina = new Graphic({
@@ -1223,8 +1225,8 @@ var attributesNorthDakota = {
 }
 
 var popupNorthDakota = {
-  "title": "NorthDakota, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NorthDakota, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNorthDakota = new Graphic({
@@ -1265,8 +1267,8 @@ var attributesNebraska = {
 }
 
 var popupNebraska = {
-  "title": "Nebraska, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Nebraska, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNebraska = new Graphic({
@@ -1307,8 +1309,8 @@ var attributesNewHampshire = {
 }
 
 var popupNewHampshire = {
-  "title": "NewHampshire, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NewHampshire, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNewHampshire = new Graphic({
@@ -1349,8 +1351,8 @@ var attributesNewJersey = {
 }
 
 var popupNewJersey = {
-  "title": "NewJersey, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NewJersey, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNewJersey = new Graphic({
@@ -1391,8 +1393,8 @@ var attributesNewMexico = {
 }
 
 var popupNewMexico = {
-  "title": "NewMexico, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NewMexico, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNewMexico = new Graphic({
@@ -1433,8 +1435,8 @@ var attributesNevada = {
 }
 
 var popupNevada = {
-  "title": "Nevada, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Nevada, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNevada = new Graphic({
@@ -1475,8 +1477,8 @@ var attributesNewYork = {
 }
 
 var popupNewYork = {
-  "title": "NewYork, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "NewYork, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsNewYork = new Graphic({
@@ -1517,8 +1519,8 @@ var attributesOhio = {
 }
 
 var popupOhio = {
-  "title": "Ohio, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Ohio, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsOhio = new Graphic({
@@ -1559,8 +1561,8 @@ var attributesOklahoma = {
 }
 
 var popupOklahoma = {
-  "title": "Oklahoma, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Oklahoma, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsOklahoma = new Graphic({
@@ -1601,8 +1603,8 @@ var attributesOregon = {
 }
 
 var popupOregon = {
-  "title": "Oregon, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Oregon, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsOregon = new Graphic({
@@ -1643,8 +1645,8 @@ var attributesPennsylvania = {
 }
 
 var popupPennsylvania = {
-  "title": "Pennsylvania, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Pennsylvania, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsPennsylvania = new Graphic({
@@ -1685,8 +1687,8 @@ var attributesRhodeIsland = {
 }
 
 var popupRhodeIsland = {
-  "title": "RhodeIsland, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "RhodeIsland, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsRhodeIsland = new Graphic({
@@ -1727,8 +1729,8 @@ var attributesSouthCarolina = {
 }
 
 var popupSouthCarolina = {
-  "title": "SouthCarolina, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "SouthCarolina, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsSouthCarolina = new Graphic({
@@ -1769,8 +1771,8 @@ var attributesSouthDakota = {
 }
 
 var popupSouthDakota = {
-  "title": "SouthDakota, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "SouthDakota, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsSouthDakota = new Graphic({
@@ -1811,8 +1813,8 @@ var attributesTennessee = {
 }
 
 var popupTennessee = {
-  "title": "Tennessee, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Tennessee, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsTennessee = new Graphic({
@@ -1853,8 +1855,8 @@ var attributesTexas = {
 }
 
 var popupTexas = {
-  "title": "Texas, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Texas, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsTexas = new Graphic({
@@ -1895,8 +1897,8 @@ var attributesUtah = {
 }
 
 var popupUtah = {
-  "title": "Utah, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Utah, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsUtah = new Graphic({
@@ -1937,8 +1939,8 @@ var attributesVirginia = {
 }
 
 var popupVirginia = {
-  "title": "Virginia, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Virginia, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsVirginia = new Graphic({
@@ -1979,8 +1981,8 @@ var attributesVermont = {
 }
 
 var popupVermont = {
-  "title": "Vermont, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Vermont, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsVermont = new Graphic({
@@ -2021,8 +2023,8 @@ var attributesWashington = {
 }
 
 var popupWashington = {
-  "title": "Washington, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Washington, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsWashington = new Graphic({
@@ -2063,8 +2065,8 @@ var attributesWisconsin = {
 }
 
 var popupWisconsin = {
-  "title": "Wisconsin, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Wisconsin, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsWisconsin = new Graphic({
@@ -2105,8 +2107,8 @@ var attributesWestVirginia = {
 }
 
 var popupWestVirginia = {
-  "title": "WestVirginia, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "WestVirginia, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsWestVirginia = new Graphic({
@@ -2147,8 +2149,8 @@ var attributesWyoming = {
 }
 
 var popupWyoming = {
-  "title": "Wyoming, " + d.toDateString(),
-  "content": "Predicted nitrogen dioxide particles per cm^2: 0"
+  "title": "Wyoming, " + futureDate.toDateString() + " (ten days from now)",
+  "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
 var popupsWyoming = new Graphic({
