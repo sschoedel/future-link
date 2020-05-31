@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import datereaderYE
 
+import joblib as jb
+
 class FutureDataSet(Dataset):
 
     def __init__(self, dataframe, y):
@@ -16,28 +18,26 @@ class FutureDataSet(Dataset):
     #Retrieve and prepare the data to be used for one sample
     def __getitem__(self, idx):
         
-        stateLine = self.dataframe.iloc[idx, 0:]
-        state = np.array([stateLine[0:]])[0]
+        stateLine = self.dataframe[idx]
         #print(state.shape)
-        state = np.array([stateLine[1:]])[0]
+        state = np.array(stateLine[1:])
         #print(state.shape)
-        gasVals = self.y
+        gasVals = np.array(self.y[idx])
         #print(gasVals.shape)
-        state = np.hstack((state, gasVals[:len(gasVals)-1]))
+        print(state)
+        print(gasVals.shape)
+        state = np.hstack((state, gasVals.reshape((len(gasVals),1))[:len(gasVals)-1]))
         
         state = state.astype('float')
         label = gasVals[1:]
         return state, label
 
 if __name__ == '__main__':
-    datas = []
-    for state in ['virginia', 'wyoming', 'kansas', 'colorado']:
-        #print(state)
-        labels, output = datereaderYE.get_X("2020-03-22", "2020-05-28", state)
-        datas.append(output)
-    testData = pd.DataFrame.from_records(datas)
 
+    allData = jb.load('lstm_Data.joblib')
+    x = allData[0]
+    y = allData[1]
 
-    y = np.random.rand(66 + 1).reshape(((66 + 1),1))
-    data = FutureDataSet(testData, y)
+    data = FutureDataSet(x, y)
+    print("--------------------------")
     print(data.__getitem__(2))
