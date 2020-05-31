@@ -8,20 +8,10 @@ import pdb
 def get_mulList(*args):
     return map(list,zip(*args))
 
-csv_data = open('NO2_data.csv','r')
-data = list(csv.reader(csv_data))
-keys = []
-values = []
-for key in data[0]:
-    keys.append(key.lower())
-    
-for values in get_mulList(*data[1:]):
-    valueList = []
-    for value in values:
-        valueList.append(float(value))
-    values.append(valueList)
+def get_Ydict():   
+    csv_data = open('NO2_data.csv','r')
+    data = list(csv.reader(csv_data))
+    ind_dict = dict(zip([key.lower() for key in data[0]],[[float(value) for value in values] for values in get_mulList(*data[1:])]))
 
-ind_dict = dict(zip(keys,values))
-
-print(ind_dict)
-pdb.set_trace()
+    print(ind_dict)
+    pdb.set_trace()

@@ -21,22 +21,24 @@ from utils import saveLog
 import argparse
 import pdb
 import math
+import joblib as jb
 
 class Runner():
-    def __init__(self, trainingData, gpuOn=False, epochs=200, lr=0.001, weight_decay=0.01):
+    def __init__(self, trainingX, trainingY, gpuOn=False, epochs=200, lr=0.001, weight_decay=0.01):
 
         #instantiate the LSTM and hyperparams
-        self.net = FutureNet()
+        self.net = FutureNet(1)
         self.gpuOn = gpuOn
         self.lr = lr
         self.weight_decay = weight_decay
+        self.epochs = epochs
 
         #Move the network to the GPU if enabled
         if self.gpuOn:
             self.net = self.net.cuda()
 
         #Load Data & put into training DataLoader, which is used in train()
-        train = FutureDataSet(trainingData)
+        train = FutureDataSet(trainingX, trainingY)
         self.trainLoader = DataLoader(train, batch_size=1,
                             shuffle=True, num_workers=4)
 
@@ -49,7 +51,7 @@ class Runner():
 
         #Instantiate the loss function, optimizer, learning rate scheduler, and start recording training time
         criterion = nn.SmoothL1Loss()
-        optimizer = optim.AdamW(self.net.parameters(), lr=self.lr, weight_decay=self.weight_decay)
+        optimizer = optim.Adam(self.net.parameters(), lr=self.lr, weight_decay=self.weight_decay)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor = .25, patience = 5, threshold = .002, verbose = True, min_lr = [.000001])
         start = time.time()
 
@@ -57,7 +59,7 @@ class Runner():
         prev_loss = 0.0
         flat_count = 0
         self.net.train()
-        for epoch in (self.epochs):
+        for epoch in range(self.epochs):
             print("Epoch #:" + str(epoch))
             running_loss = 0.0
 
@@ -70,8 +72,9 @@ class Runner():
                 optimizer.zero_grad()
 
                 #need to feed in data one row at a time
-                for day in inputs:
+                for c, day in enumerate(inputs[0]):
                     #Move the loaded data to the GPU if enabled
+                       
                     if self.gpuOn:
                         inputs = inputs.float().cuda()
                         labels = labels.float().cuda()
@@ -93,12 +96,12 @@ class Runner():
 
             #Early stop mechanic: If the loss is greater than the previous loss or fluctuates within the threshold in reference to the previous stop, increase the flat count
             stop_thres = .0005
-            if np.round(np.abs(running_loss/(i+1) - prev_loss/(i+1)), decimals = 3) <= stop_thres or np.round(running_loss/(i+1), decimals = 3) >= np.round(prev_loss/(i+1), decimals = 3):
+            if np.round(np.abs(running_loss/((c+1)*(i+1)) - prev_loss/((c+1)*(i+1))), decimals = 3) <= stop_thres or np.round(running_loss/((c+1)*(i+1)), decimals = 3) >= np.round(prev_loss/((c+1)*(i+1)), decimals = 3):
                 flat_count = flat_count + 1
             else:
                 flat_count = 0
 
-            print('[{}] Loss: {:.4f} | Flatline Count: {}'.format(epoch, running_loss/(i+1), flat_count))
+            print('[{}] Loss: {:.4f} | Flatline Count: {}'.format(epoch, running_loss/((c+1)*(i+1)), flat_count))
 
             #If flat count is greater than stop_count and the learning rate scheduler has reached its minimum lr, cut off the training of the network and record the final epoch
             finalEpoch = epoch
@@ -122,13 +125,15 @@ if __name__ == '__main__':
 
     #Command Line Argument Parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('-td', '--trainData')
+    #parser.add_argument('-td', '--trainData')
     parser.add_argument('-rn', '--runName')
     args = parser.parse_args()
 
+    trainingData = jb.load('lstm_Data.joblib')
+
     #Initialize Runner obj and run training cycle
     #needs: trainingData - dataframe of all training data
-    futureNet = Runner(trainingData)
+    futureNet = Runner(trainingData[0], trainingData[1])
     futureNet.train()
 
 #Save log, diabled temporarily until review is finished
