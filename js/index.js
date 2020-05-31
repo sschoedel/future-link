@@ -91,19 +91,54 @@ var attributesAlaska = {
   Location: "Alaska"
 }
 
-var popupAlaska = {
+var popupTemplateAlaska1 = {
   "title": "Alaska, " + futureDate.toDateString() + " (ten days from now)",
   "content": "Predicted nitrogen dioxide: 0 particles per cm^2"
 }
 
-var popupsAlaska = new Graphic({
+var popupsAlaska1 = new Graphic({
   geometry: Alaska,
   symbol: simpleFillSymbolAlaska,
   attributes: attributesAlaska,
-  popupTemplate: popupAlaska
+  popupTemplate: popupTemplateAlaska1
 });
 
-graphicsLayer.add(popupsAlaska);
+graphicsLayer.add(popupsAlaska1);
+
+var popupTemplateAlaska2 = new PopupTemplate({
+  title: "Boston Marathon 2013",
+  description: "{STATE_NAME}:  {Percent_Fi} of starters finished",
+  fieldInfos: [{ //define field infos so we can specify an alias
+    fieldName: "Number_Ent",
+    label: "Entrants"
+  },{
+    fieldName: "Number_Sta",
+    label: "Starters"
+  },{
+    fieldName: "Number_Fin",
+    label: "Finishers"
+  }],
+  mediaInfos:[{ //define the bar chart
+    caption: "",
+    type:"barchart",
+    value:{
+      theme: "Dollar",
+      fields:["Number_Ent","Number_Sta","Number_Fin"]
+    }
+  }]
+});
+
+var popupsAlaska2 = new Graphic({
+  geometry: Alaska,
+  symbol: simpleFillSymbolAlaska,
+  attributes: attributesAlaska,
+  popupTemplate: popupTemplateAlaska2
+});
+
+graphicsLayer.add(popupsAlaska2);
+
+
+
 
 var Alabama = {
   type: "polygon",
