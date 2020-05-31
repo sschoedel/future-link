@@ -49,8 +49,8 @@ var map = new Map({
   map.add(graphicsLayer);
 
 
-
-
+  // Date variable for each state's popup
+  var d = new Date();
 
 
  /*
@@ -84,13 +84,13 @@ var polygonGraphicAlaska = new Graphic({
 graphicsLayer.add(polygonGraphicAlaska);
 
 var attributesAlaska = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Alaska",
   Location: "Alaska"
 }
 
 var popupAlaska = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Alaska",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsAlaska = new Graphic({
@@ -126,13 +126,13 @@ var polygonGraphicAlabama = new Graphic({
 graphicsLayer.add(polygonGraphicAlabama);
 
 var attributesAlabama = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Alabama",
   Location: "Alabama"
 }
 
 var popupAlabama = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Alabama",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsAlabama = new Graphic({
@@ -168,13 +168,13 @@ var polygonGraphicArkansas = new Graphic({
 graphicsLayer.add(polygonGraphicArkansas);
 
 var attributesArkansas = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Arkansas",
   Location: "Arkansas"
 }
 
 var popupArkansas = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Arkansas",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsArkansas = new Graphic({
@@ -210,13 +210,13 @@ var polygonGraphicArizona = new Graphic({
 graphicsLayer.add(polygonGraphicArizona);
 
 var attributesArizona = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Arizona",
   Location: "Arizona"
 }
 
 var popupArizona = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Arizona",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsArizona = new Graphic({
@@ -252,13 +252,13 @@ var polygonGraphicCalifornia = new Graphic({
 graphicsLayer.add(polygonGraphicCalifornia);
 
 var attributesCalifornia = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "California",
   Location: "California"
 }
 
 var popupCalifornia = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "California",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsCalifornia = new Graphic({
@@ -294,13 +294,13 @@ var polygonGraphicColorado = new Graphic({
 graphicsLayer.add(polygonGraphicColorado);
 
 var attributesColorado = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Colorado",
   Location: "Colorado"
 }
 
 var popupColorado = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Colorado",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsColorado = new Graphic({
@@ -336,13 +336,13 @@ var polygonGraphicConnecticut = new Graphic({
 graphicsLayer.add(polygonGraphicConnecticut);
 
 var attributesConnecticut = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Connecticut",
   Location: "Connecticut"
 }
 
 var popupConnecticut = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Connecticut",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsConnecticut = new Graphic({
@@ -378,13 +378,13 @@ var polygonGraphicDelaware = new Graphic({
 graphicsLayer.add(polygonGraphicDelaware);
 
 var attributesDelaware = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Delaware",
   Location: "Delaware"
 }
 
 var popupDelaware = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Delaware",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsDelaware = new Graphic({
@@ -420,13 +420,13 @@ var polygonGraphicFlorida = new Graphic({
 graphicsLayer.add(polygonGraphicFlorida);
 
 var attributesFlorida = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Florida",
   Location: "Florida"
 }
 
 var popupFlorida = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Florida",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsFlorida = new Graphic({
@@ -462,13 +462,13 @@ var polygonGraphicGeorgia = new Graphic({
 graphicsLayer.add(polygonGraphicGeorgia);
 
 var attributesGeorgia = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Georgia",
   Location: "Georgia"
 }
 
 var popupGeorgia = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Georgia",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsGeorgia = new Graphic({
@@ -504,13 +504,13 @@ var polygonGraphicHawaii = new Graphic({
 graphicsLayer.add(polygonGraphicHawaii);
 
 var attributesHawaii = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Hawaii",
   Location: "Hawaii"
 }
 
 var popupHawaii = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Hawaii",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsHawaii = new Graphic({
@@ -546,13 +546,13 @@ var polygonGraphicIowa = new Graphic({
 graphicsLayer.add(polygonGraphicIowa);
 
 var attributesIowa = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Iowa",
   Location: "Iowa"
 }
 
 var popupIowa = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Iowa",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsIowa = new Graphic({
@@ -588,13 +588,13 @@ var polygonGraphicIdaho = new Graphic({
 graphicsLayer.add(polygonGraphicIdaho);
 
 var attributesIdaho = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Idaho",
   Location: "Idaho"
 }
 
 var popupIdaho = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Idaho",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsIdaho = new Graphic({
@@ -630,13 +630,13 @@ var polygonGraphicIllinois = new Graphic({
 graphicsLayer.add(polygonGraphicIllinois);
 
 var attributesIllinois = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Illinois",
   Location: "Illinois"
 }
 
 var popupIllinois = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Illinois",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsIllinois = new Graphic({
@@ -672,13 +672,13 @@ var polygonGraphicIndiana = new Graphic({
 graphicsLayer.add(polygonGraphicIndiana);
 
 var attributesIndiana = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Indiana",
   Location: "Indiana"
 }
 
 var popupIndiana = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Indiana",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsIndiana = new Graphic({
@@ -714,13 +714,13 @@ var polygonGraphicKansas = new Graphic({
 graphicsLayer.add(polygonGraphicKansas);
 
 var attributesKansas = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Kansas",
   Location: "Kansas"
 }
 
 var popupKansas = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Kansas",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsKansas = new Graphic({
@@ -756,13 +756,13 @@ var polygonGraphicKentucky = new Graphic({
 graphicsLayer.add(polygonGraphicKentucky);
 
 var attributesKentucky = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Kentucky",
   Location: "Kentucky"
 }
 
 var popupKentucky = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Kentucky",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsKentucky = new Graphic({
@@ -798,13 +798,13 @@ var polygonGraphicLouisiana = new Graphic({
 graphicsLayer.add(polygonGraphicLouisiana);
 
 var attributesLouisiana = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Louisiana",
   Location: "Louisiana"
 }
 
 var popupLouisiana = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Louisiana",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsLouisiana = new Graphic({
@@ -840,13 +840,13 @@ var polygonGraphicMassachusetts = new Graphic({
 graphicsLayer.add(polygonGraphicMassachusetts);
 
 var attributesMassachusetts = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Massachusetts",
   Location: "Massachusetts"
 }
 
 var popupMassachusetts = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Massachusetts",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMassachusetts = new Graphic({
@@ -882,13 +882,13 @@ var polygonGraphicMaryland = new Graphic({
 graphicsLayer.add(polygonGraphicMaryland);
 
 var attributesMaryland = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Maryland",
   Location: "Maryland"
 }
 
 var popupMaryland = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Maryland",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMaryland = new Graphic({
@@ -924,13 +924,13 @@ var polygonGraphicMaine = new Graphic({
 graphicsLayer.add(polygonGraphicMaine);
 
 var attributesMaine = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Maine",
   Location: "Maine"
 }
 
 var popupMaine = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Maine",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMaine = new Graphic({
@@ -966,13 +966,13 @@ var polygonGraphicMichigan = new Graphic({
 graphicsLayer.add(polygonGraphicMichigan);
 
 var attributesMichigan = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Michigan",
   Location: "Michigan"
 }
 
 var popupMichigan = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Michigan",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMichigan = new Graphic({
@@ -1008,13 +1008,13 @@ var polygonGraphicMinnesota = new Graphic({
 graphicsLayer.add(polygonGraphicMinnesota);
 
 var attributesMinnesota = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Minnesota",
   Location: "Minnesota"
 }
 
 var popupMinnesota = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Minnesota",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMinnesota = new Graphic({
@@ -1050,13 +1050,13 @@ var polygonGraphicMissouri = new Graphic({
 graphicsLayer.add(polygonGraphicMissouri);
 
 var attributesMissouri = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Missouri",
   Location: "Missouri"
 }
 
 var popupMissouri = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Missouri",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMissouri = new Graphic({
@@ -1092,13 +1092,13 @@ var polygonGraphicMississippi = new Graphic({
 graphicsLayer.add(polygonGraphicMississippi);
 
 var attributesMississippi = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Mississippi",
   Location: "Mississippi"
 }
 
 var popupMississippi = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Mississippi",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMississippi = new Graphic({
@@ -1134,13 +1134,13 @@ var polygonGraphicMontana = new Graphic({
 graphicsLayer.add(polygonGraphicMontana);
 
 var attributesMontana = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Montana",
   Location: "Montana"
 }
 
 var popupMontana = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Montana",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsMontana = new Graphic({
@@ -1176,13 +1176,13 @@ var polygonGraphicNorthCarolina = new Graphic({
 graphicsLayer.add(polygonGraphicNorthCarolina);
 
 var attributesNorthCarolina = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NorthCarolina",
   Location: "NorthCarolina"
 }
 
 var popupNorthCarolina = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NorthCarolina",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNorthCarolina = new Graphic({
@@ -1218,13 +1218,13 @@ var polygonGraphicNorthDakota = new Graphic({
 graphicsLayer.add(polygonGraphicNorthDakota);
 
 var attributesNorthDakota = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NorthDakota",
   Location: "NorthDakota"
 }
 
 var popupNorthDakota = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NorthDakota",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNorthDakota = new Graphic({
@@ -1260,13 +1260,13 @@ var polygonGraphicNebraska = new Graphic({
 graphicsLayer.add(polygonGraphicNebraska);
 
 var attributesNebraska = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Nebraska",
   Location: "Nebraska"
 }
 
 var popupNebraska = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Nebraska",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNebraska = new Graphic({
@@ -1302,13 +1302,13 @@ var polygonGraphicNewHampshire = new Graphic({
 graphicsLayer.add(polygonGraphicNewHampshire);
 
 var attributesNewHampshire = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NewHampshire",
   Location: "NewHampshire"
 }
 
 var popupNewHampshire = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NewHampshire",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNewHampshire = new Graphic({
@@ -1344,13 +1344,13 @@ var polygonGraphicNewJersey = new Graphic({
 graphicsLayer.add(polygonGraphicNewJersey);
 
 var attributesNewJersey = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NewJersey",
   Location: "NewJersey"
 }
 
 var popupNewJersey = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NewJersey",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNewJersey = new Graphic({
@@ -1386,13 +1386,13 @@ var polygonGraphicNewMexico = new Graphic({
 graphicsLayer.add(polygonGraphicNewMexico);
 
 var attributesNewMexico = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NewMexico",
   Location: "NewMexico"
 }
 
 var popupNewMexico = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NewMexico",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNewMexico = new Graphic({
@@ -1428,13 +1428,13 @@ var polygonGraphicNevada = new Graphic({
 graphicsLayer.add(polygonGraphicNevada);
 
 var attributesNevada = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Nevada",
   Location: "Nevada"
 }
 
 var popupNevada = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Nevada",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNevada = new Graphic({
@@ -1470,13 +1470,13 @@ var polygonGraphicNewYork = new Graphic({
 graphicsLayer.add(polygonGraphicNewYork);
 
 var attributesNewYork = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "NewYork",
   Location: "NewYork"
 }
 
 var popupNewYork = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "NewYork",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsNewYork = new Graphic({
@@ -1512,13 +1512,13 @@ var polygonGraphicOhio = new Graphic({
 graphicsLayer.add(polygonGraphicOhio);
 
 var attributesOhio = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Ohio",
   Location: "Ohio"
 }
 
 var popupOhio = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Ohio",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsOhio = new Graphic({
@@ -1554,13 +1554,13 @@ var polygonGraphicOklahoma = new Graphic({
 graphicsLayer.add(polygonGraphicOklahoma);
 
 var attributesOklahoma = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Oklahoma",
   Location: "Oklahoma"
 }
 
 var popupOklahoma = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Oklahoma",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsOklahoma = new Graphic({
@@ -1596,13 +1596,13 @@ var polygonGraphicOregon = new Graphic({
 graphicsLayer.add(polygonGraphicOregon);
 
 var attributesOregon = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Oregon",
   Location: "Oregon"
 }
 
 var popupOregon = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Oregon",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsOregon = new Graphic({
@@ -1638,13 +1638,13 @@ var polygonGraphicPennsylvania = new Graphic({
 graphicsLayer.add(polygonGraphicPennsylvania);
 
 var attributesPennsylvania = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Pennsylvania",
   Location: "Pennsylvania"
 }
 
 var popupPennsylvania = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Pennsylvania",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsPennsylvania = new Graphic({
@@ -1680,13 +1680,13 @@ var polygonGraphicRhodeIsland = new Graphic({
 graphicsLayer.add(polygonGraphicRhodeIsland);
 
 var attributesRhodeIsland = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "RhodeIsland",
   Location: "RhodeIsland"
 }
 
 var popupRhodeIsland = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "RhodeIsland",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsRhodeIsland = new Graphic({
@@ -1722,13 +1722,13 @@ var polygonGraphicSouthCarolina = new Graphic({
 graphicsLayer.add(polygonGraphicSouthCarolina);
 
 var attributesSouthCarolina = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "SouthCarolina",
   Location: "SouthCarolina"
 }
 
 var popupSouthCarolina = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "SouthCarolina",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsSouthCarolina = new Graphic({
@@ -1764,13 +1764,13 @@ var polygonGraphicSouthDakota = new Graphic({
 graphicsLayer.add(polygonGraphicSouthDakota);
 
 var attributesSouthDakota = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "SouthDakota",
   Location: "SouthDakota"
 }
 
 var popupSouthDakota = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "SouthDakota",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsSouthDakota = new Graphic({
@@ -1806,13 +1806,13 @@ var polygonGraphicTennessee = new Graphic({
 graphicsLayer.add(polygonGraphicTennessee);
 
 var attributesTennessee = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Tennessee",
   Location: "Tennessee"
 }
 
 var popupTennessee = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Tennessee",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsTennessee = new Graphic({
@@ -1848,13 +1848,13 @@ var polygonGraphicTexas = new Graphic({
 graphicsLayer.add(polygonGraphicTexas);
 
 var attributesTexas = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Texas",
   Location: "Texas"
 }
 
 var popupTexas = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Texas",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsTexas = new Graphic({
@@ -1890,13 +1890,13 @@ var polygonGraphicUtah = new Graphic({
 graphicsLayer.add(polygonGraphicUtah);
 
 var attributesUtah = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Utah",
   Location: "Utah"
 }
 
 var popupUtah = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Utah",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsUtah = new Graphic({
@@ -1932,13 +1932,13 @@ var polygonGraphicVirginia = new Graphic({
 graphicsLayer.add(polygonGraphicVirginia);
 
 var attributesVirginia = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Virginia",
   Location: "Virginia"
 }
 
 var popupVirginia = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Virginia",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsVirginia = new Graphic({
@@ -1974,13 +1974,13 @@ var polygonGraphicVermont = new Graphic({
 graphicsLayer.add(polygonGraphicVermont);
 
 var attributesVermont = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Vermont",
   Location: "Vermont"
 }
 
 var popupVermont = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Vermont",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsVermont = new Graphic({
@@ -2016,13 +2016,13 @@ var polygonGraphicWashington = new Graphic({
 graphicsLayer.add(polygonGraphicWashington);
 
 var attributesWashington = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Washington",
   Location: "Washington"
 }
 
 var popupWashington = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Washington",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsWashington = new Graphic({
@@ -2058,13 +2058,13 @@ var polygonGraphicWisconsin = new Graphic({
 graphicsLayer.add(polygonGraphicWisconsin);
 
 var attributesWisconsin = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Wisconsin",
   Location: "Wisconsin"
 }
 
 var popupWisconsin = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Wisconsin",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsWisconsin = new Graphic({
@@ -2100,13 +2100,13 @@ var polygonGraphicWestVirginia = new Graphic({
 graphicsLayer.add(polygonGraphicWestVirginia);
 
 var attributesWestVirginia = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "WestVirginia",
   Location: "WestVirginia"
 }
 
 var popupWestVirginia = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "WestVirginia",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsWestVirginia = new Graphic({
@@ -2142,13 +2142,13 @@ var polygonGraphicWyoming = new Graphic({
 graphicsLayer.add(polygonGraphicWyoming);
 
 var attributesWyoming = {
-  Name: "Nitrogen Dioxide particles per cm^2",
+  Name: "Wyoming",
   Location: "Wyoming"
 }
 
 var popupWyoming = {
-  "title": "Nitrogen Dioxide particles per cm^2",
-  "content": "0"
+  "title": "Wyoming",
+  "content": "Nitrogen Dioxide particles per cm^2 on" + d.toDateString() + "0"
 }
 
 var popupsWyoming = new Graphic({
@@ -2159,5 +2159,4 @@ var popupsWyoming = new Graphic({
 });
 
 graphicsLayer.add(popupsWyoming);
-
 });
