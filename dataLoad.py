@@ -3,6 +3,7 @@ import re
 from zipfile import ZipFile
 import os
 import reader
+from datetime import datetime
 
 def getIHMEData():
     url = "https://ihmecovid19storage.blob.core.windows.net/latest/ihme-covid19.zip"
@@ -37,7 +38,18 @@ def getIHMEData():
     return masterDict
 
 if __name__ == '__main__':
-    print(getIHMEData())
+    masterDict = getIHMEData()
+    tempList = []
+    for state in list(masterDict):
+        dictTemp = masterDict[state]
+        for vals in dictTemp.values():
+            
+            if isinstance(vals, datetime):
+                tempList.append(vals)
+            if vals == datetime.strptime('2020-2-22', '%Y-%m-%d'):
+                print(state)
+
+    print(min(tempList))
         
 
 

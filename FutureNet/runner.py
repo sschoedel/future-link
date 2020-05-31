@@ -20,7 +20,11 @@ try:
 except ImportError: 
     from yaml import Loader, Dumper
 
+<<<<<<< HEAD
 from FutureNetArchitecture import FutureNet
+=======
+from future_net import FutureNet
+>>>>>>> 610440d72ffb37dcf6bbea660ad330ac6900086c
 from dataset import TrussDataSet
 from utils import saveLog
 
@@ -34,7 +38,12 @@ class Runner():
 
         #instantiate the architecture, experiment config, and neural network class variables
         self.arch = architecture
+<<<<<<< HEAD
         self.net = FutureNet()
+=======
+        self.experiment = experiment
+        self.net = FutureNet(experiment['architecture_path'])
+>>>>>>> 610440d72ffb37dcf6bbea660ad330ac6900086c
 
         #Move the network to the GPU if enabled
         if experiment['gpuOn']:
@@ -53,7 +62,12 @@ class Runner():
         print("-------------------------------------")
 
         #Instantiate the loss function, optimizer, learning rate scheduler, and start recording training time
+<<<<<<< HEAD
         criterion = nn.SmoothL1Loss()
+=======
+        #criterion = nn.SmoothL1Loss()
+        criterion = nn.CrossEntropyLoss
+>>>>>>> 610440d72ffb37dcf6bbea660ad330ac6900086c
         optimizer = optim.AdamW(self.net.parameters(), lr = self.arch['lr'], weight_decay= self.arch['weight_decay'])
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor = .25, patience = 5, threshold = .002, verbose = True, min_lr = [.000001])
         start = time.time()
@@ -140,8 +154,8 @@ if __name__ == '__main__':
     #load config, architecture, testing Data, and NN files
     experiment = load(open(config_path), Loader=Loader)
     arch = load(open(experiment['architecture_path']), Loader=Loader)
-    trainingData = jb.load(args.trainData)
-
+    #trainingData = jb.load(args.trainData)
+    torch = 
     #Initialize Runner obj and run training cycle
     trussNet = Runner(experiment, arch, trainingData)
     trussNet.train()
