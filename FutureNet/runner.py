@@ -20,7 +20,7 @@ try:
 except ImportError: 
     from yaml import Loader, Dumper
 
-from truss_net import TrussNet
+from FutureNetArchitecture import FutureNet
 from dataset import TrussDataSet
 from utils import saveLog
 
@@ -30,12 +30,11 @@ import math
 import joblib as jb
 
 class Runner():
-    def __init__(self, experiment, architecture, trainingData):
+    def __init__(self, architecture, trainingData):
 
         #instantiate the architecture, experiment config, and neural network class variables
         self.arch = architecture
-        self.experiment = experiment
-        self.net = TrussNet(experiment['architecture_path'])
+        self.net = FutureNet()
 
         #Move the network to the GPU if enabled
         if experiment['gpuOn']:
@@ -54,7 +53,7 @@ class Runner():
         print("-------------------------------------")
 
         #Instantiate the loss function, optimizer, learning rate scheduler, and start recording training time
-        criterion = nn.CrossEntropyLoss()
+        criterion = nn.SmoothL1Loss()
         optimizer = optim.AdamW(self.net.parameters(), lr = self.arch['lr'], weight_decay= self.arch['weight_decay'])
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor = .25, patience = 5, threshold = .002, verbose = True, min_lr = [.000001])
         start = time.time()
@@ -68,27 +67,31 @@ class Runner():
             running_loss = 0.0
 
             for i, data in enumerate(self.trainLoader, 0):
+                #inputs: 2d array, full time sequence
+                #labels: 1d array
                 inputs, labels = data
-
+            
                 #Zero the gradient of the NN before the training loop begins
                 optimizer.zero_grad()
-                
-                #Move the loaded data to the GPU if enabled
-                if experiment['gpuOn']:
-                    inputs = inputs.float().cuda()
-                    labels = labels.long().cuda()
-                else:
-                    inputs = inputs.float()
-                    labels = labels.long()
-                
-                #Predict from the current model, calculate the loss, and perform backprop
-                lossOut, outputs = self.net(inputs)
-                loss = criterion(lossOut,labels)
-                loss.backward()
-                optimizer.step()
 
-                #Keep a running loss total throughout the epoch for reporting reasons
-                running_loss += loss.item()
+                #need to feed in data one row at a time
+                for day in inputs:
+                    #Move the loaded data to the GPU if enabled
+                    if experiment['gpuOn']:
+                        inputs = inputs.float().cuda()
+                        labels = labels.float().cuda()
+                    else:
+                        inputs = inputs.float()
+                        labels = labels.float()
+                
+                    #Predict from the current model, calculate the loss, and perform backprop
+                    output = self.net(day)
+                    loss = criterion(output,labels)
+                    loss.backward()
+                    optimizer.step()
+
+                    #Keep a running loss total throughout the epoch for reporting reasons
+                    running_loss += loss.item()
 
             #Update the learning rate scheduler
             scheduler.step(running_loss)
