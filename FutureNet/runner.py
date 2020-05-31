@@ -64,6 +64,9 @@ class Runner():
             print("Epoch #:" + str(epoch))
             running_loss = 0.0
 
+            self.net.zero_grad()
+            self.net.hidden = self.net.init_hidden()
+
             for i, data in enumerate(self.trainLoader, 0):
                 #inputs: 2d array, full time sequence
                 #labels: 1d array
